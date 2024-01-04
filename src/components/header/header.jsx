@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import './header.scss';
+import './_header.scss';
 
 const Header = (props) => {
     const [menuOpen, setMenuOpen] = useState(false);

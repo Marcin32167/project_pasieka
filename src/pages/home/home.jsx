@@ -1,10 +1,14 @@
+// home.jsx
 import React from 'react';
+import MySwiper from './swiper'; // Import your Swiper component
 
 const Home = () => {
     return (
-        <>
-            {/* Here will be sections on home page */}
-        </>
-    )
-}
+        <div>
+            <h1>Your Home Page</h1>
+            <MySwiper />
+        </div>
+    );
+};
+
 export default Home;
