@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './_header.scss';
 
+import PasiekaNaKrynicyBrand from '../../assets/pasieka_na_krynicy_brand.svg';
+
 const Header = (props) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -31,7 +33,7 @@ const Header = (props) => {
         <header className="header">
             <div className={"container__header"}>
                 <Link to="/" className="logo">
-                    <p className={"company-brand"}>Brand</p>
+                    <img className="brand" src="/assets/pasieka_na_krynicy_brand.svg"/>
                 </Link>
                 <div className="wrapper__nav">
                     <div className="wrapper__btns--nav">

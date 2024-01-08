@@ -10,6 +10,8 @@
 
 .swiper {
   width: 100%;
+  max-width: 90rem;
+
   height: 100%;
 }
 
@@ -29,4 +31,40 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.hero-slider .slide-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background: transparent;
+  width: 55px;
+  height: 55px;
+  line-height: 53px;
+  margin-top: -30px;
+  text-align: center;
+  border: 2px solid #d4d3d3;
+  border-radius: 55px;
+  opacity:0;
+  visibility:hidden;
+  transition:all .3s ease;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform:translateX(0);
+  opacity:1;
+  visibility:visible;
 }
