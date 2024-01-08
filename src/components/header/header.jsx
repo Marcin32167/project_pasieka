@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './_header.scss';
 
+import logoBrand from '../../assets/pasieka_na_krynicy_brand.svg';
+
+
 import PasiekaNaKrynicyBrand from '../../assets/pasieka_na_krynicy_brand.svg';
 
 const Header = (props) => {
@@ -33,7 +36,7 @@ const Header = (props) => {
         <header className="header">
             <div className={"container__header"}>
                 <Link to="/" className="logo">
-                    <img className="brand" src="/assets/pasieka_na_krynicy_brand.svg"/>
+                    <img className={"img__logo"} src={logoBrand}/>
                 </Link>
                 <div className="wrapper__nav">
                     <div className="wrapper__btns--nav">
