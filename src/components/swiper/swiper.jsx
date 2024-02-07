@@ -13,7 +13,8 @@ import { Navigation } from 'swiper/modules';
 
 export default function App() {
     return (
-        <>
+        <section className="hero__slider">
+            <div className="swiper__container">
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 <SwiperSlide>Slide 1</SwiperSlide>
                 <SwiperSlide>Slide 2</SwiperSlide>
@@ -25,6 +26,7 @@ export default function App() {
                 <SwiperSlide>Slide 8</SwiperSlide>
                 <SwiperSlide>Slide 9</SwiperSlide>
             </Swiper>
-        </>
+            </div>
+        </section>
     );
 }

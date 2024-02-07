@@ -4,10 +4,7 @@ import './_header.scss';
 
 import logoBrand from '../../assets/pasieka_na_krynicy_brand.svg';
 
-
-import PasiekaNaKrynicyBrand from '../../assets/pasieka_na_krynicy_brand.svg';
-
-const Header = (props) => {
+const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -24,39 +21,35 @@ const Header = (props) => {
         };
     }, []);
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+    const toggleMenu = () => setMenuOpen(!menuOpen);
 
-    const closeMenu = () => {
-        setMenuOpen(false);
-    };
+    const closeMenu = () => setMenuOpen(false);
 
     return (
         <header className="header">
             <div className={"container__header"}>
                 <Link to="/" className="logo">
-                    <img className={"img__logo"} src={logoBrand}/>
+                    <img className={"img__logo"} src={logoBrand} alt="Logo"/>
                 </Link>
                 <div className="wrapper__nav">
-                    <div className="wrapper__btns--nav">
-
-                    </div>
+                    <div className="wrapper__btns--nav"></div>
                     <nav className={`navigation ${isMobile && menuOpen ? 'open' : ''}`}>
-                        <div className={`menu-toggle ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                            <div className="bar"></div>
-                            <div className="bar"></div>
-                            <div className="bar"></div>
-                        </div>
+                        {isMobile && (
+                            <div className={`menu-toggle ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+                                <div className="bar"></div>
+                                <div className="bar"></div>
+                                <div className="bar"></div>
+                            </div>
+                        )}
                         <ul className={`nav-list ${menuOpen ? 'open' : ''}`}>
                             <li className="nav-item">
                                 <NavLink to="/" onClick={closeMenu}>
-                                    Home
+                                    Strona główna
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink to="/about"  onClick={closeMenu}>
-                                    About
+                                <NavLink to="/o-nas" onClick={closeMenu}>
+                                    O nas
                                 </NavLink>
                             </li>
                         </ul>

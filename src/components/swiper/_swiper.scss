@@ -62,8 +62,8 @@
   visibility:hidden;
   transition:all .3s ease;
 }
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
+.swiper-button-prev,
+.swiper-button-next {
   transform:translateX(0);
   opacity:1;
   visibility:visible;

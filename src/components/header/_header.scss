@@ -7,9 +7,9 @@
   padding: 0.75rem;
   background-color: #fff;
   box-shadow: 0 2px 20px rgba(44, 62, 154, 0.05);
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0%;
+  left: 0%;
+  right: 0%;
   position: sticky;
   @media screen and (max-width: 992px) {
     padding: 0.75rem;
@@ -44,7 +44,6 @@
 
     @media screen and (max-width: 992px) {
       flex-direction: row;
-      gap: 10px;
     }
   }
 
@@ -103,7 +102,6 @@
     }
 
     .menu-toggle {
-      display: none;
       flex-direction: column;
       cursor: pointer;
       padding: 10px;
@@ -117,6 +115,7 @@
       }
 
       &.open {
+        display: flex;
         .bar:nth-child(1) {
           transform: rotate(45deg) translate(3px, 7px);
         }
@@ -129,7 +128,7 @@
       }
     }
 
-    @media (max-width: 992px) {
+    @media (max-width: 991px) {
       .menu-toggle {
         display: flex;
       }
@@ -138,8 +137,8 @@
         display: none;
         list-style: none;
         padding: 0.75rem;
-        margin-top: 22px;
         position: absolute;
+        top: 100%;
         left: 0;
         right: 0;
         background-color: #fff;
