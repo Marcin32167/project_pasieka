@@ -1,3 +1,6 @@
+@import '../../scss/settings/mixins';
+@import '../../scss/settings/colors';
+
 .header {
   z-index: 999;
   display: flex;
@@ -5,12 +8,12 @@
   align-items: center;
   width: 100%;
   padding: 0.75rem;
-  background-color: #fff;
-  box-shadow: 0 2px 20px rgba(44, 62, 154, 0.05);
+  background-color: $header-bgc;
   top: 0%;
   left: 0%;
   right: 0%;
   position: sticky;
+
   @media screen and (max-width: 992px) {
     padding: 0.75rem;
   }
@@ -40,10 +43,19 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    //gap: 0.781rem;
 
     @media screen and (max-width: 992px) {
       flex-direction: row;
+    }
+
+    &--contact {
+      .btn__main {
+        @include btn__main;
+
+      }
+      @media screen and (max-width: 992px) {
+        display: none;
+      }
     }
   }
 
@@ -63,33 +75,26 @@
   }
 
   .navigation {
+    display: flex;
 
     ul.nav-list {
       list-style: none;
       display: flex;
-      gap: 0.625rem;
       padding: 0;
       align-items: center;
 
-      li.nav-item {
+      li.nav__item {
         a {
+          padding: 0.9rem 1.6rem;
           text-decoration: none;
+          text-transform: uppercase;
           color: #000;
           font-weight: bold;
-          font-family: "Poppins Medium", sans-serif;
+          font-family: $font-nav;
 
           &:hover {
-            color: #000;
+            color: #fff;
           }
-
-          &.active {
-            color: #000;
-          }
-        }
-      }
-      .btn__secondary {
-        @media screen and (min-width: 769px) {
-          display: none;
         }
       }
     }
@@ -116,12 +121,15 @@
 
       &.open {
         display: flex;
+
         .bar:nth-child(1) {
           transform: rotate(45deg) translate(3px, 7px);
         }
+
         .bar:nth-child(2) {
           opacity: 0;
         }
+
         .bar:nth-child(3) {
           transform: rotate(-45deg) translate(3px, -7px);
         }

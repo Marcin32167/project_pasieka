@@ -9,11 +9,13 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                </Routes>
+                <div className="layout">
+                    <Header />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                    </Routes>
+                </div>
             </div>
             <link rel="icon" type="image/svg+xml" href="/icon.svg" id="favicon" />
         </Router>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => {
+const Blog = () => {
     return (
         <div>
             {/* Zawartość komponentu About */}
@@ -8,4 +8,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default Blog;

@@ -1,6 +1,7 @@
 @import "settings/reset";
 @import "settings/colors";
 @import "settings/fonts";
+@import "settings/mixins";
 
 @import "../components/header/header";
 
@@ -10,8 +11,10 @@
   box-sizing: border-box;
 }
 body, html {
-  background-color: $white-color;
+  background-color: $bgc;
   font-size: 1rem;
+  line-height: 1.5;
+  font-family: $font-primary;
 }
 
 section {

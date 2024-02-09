@@ -5,7 +5,7 @@ import '../../components/swiper/_swiper.scss'
 const Home = () => {
     return (
         <div>
-            <Swiper/>
+            {/* <Swiper/> */}
         </div>
     );
 };
