@@ -23,5 +23,23 @@
     @media screen and (max-width: 992px) {
       display: none;
     }
+  } 
+
+  @mixin nav__link {
+    a {
+      padding: 0.9rem 1.6rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #000;
+      font-weight: bold;
+      font-family: $font-nav;
+
+      &:hover {
+        color: #7a7b80;
+      }
+
+      &.active {
+        color: #7a7b80;
+      }
+    }
   }
-  

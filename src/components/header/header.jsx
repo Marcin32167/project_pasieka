@@ -25,24 +25,6 @@ const Header = () => {
 
     const closeMenu = () => setMenuOpen(false);
 
-    const handleMouseEnter = (event) => {
-        const navItems = document.querySelectorAll('.nav__item');
-
-        navItems.forEach(item => {
-            item.firstChild.style.color = '#7a7b80';
-        });
-
-        event.target.style.color = '#000';
-    }
-
-    const handleMouseLeave = () => {
-        const navItems = document.querySelectorAll('.nav__item');
-
-        navItems.forEach(item => {
-            item.firstChild.style.color = '#000';
-        });
-    }
-
     return (
         <header className="header">
             <div className="container__header">
@@ -61,17 +43,17 @@ const Header = () => {
                             )}
                             <ul className={`nav-list ${menuOpen ? 'open' : ''}`}>
                                 <li className="nav__item">
-                                    <NavLink to="/" onClick={closeMenu} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                    <NavLink to="/" onClick={closeMenu}>
                                         Strona główna
                                     </NavLink>
                                 </li>
                                 <li className="nav__item">
-                                    <NavLink to="/o-nas" onClick={closeMenu} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                    <NavLink to="/o-nas" onClick={closeMenu}>
                                         O nas
                                     </NavLink>
                                 </li>
                                 <li className="nav__item">
-                                    <NavLink to="/blog" onClick={closeMenu} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                    <NavLink to="/blog" onClick={closeMenu}>
                                         Blog
                                     </NavLink>
                                 </li>
@@ -80,7 +62,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="wrapper__nav--contact">
-                    <li className="btn__main">Kontakt</li>
+                <a href="#" class="btn__main">Kontakt</a>
                 </div>
             </div>
         </header>
