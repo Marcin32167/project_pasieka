@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import Swiper from "swiper";
 import "swiper/css";
 
+import slideOne from '../../assets/slajd_1.jpeg';
+
 const HeroSlider = () => {
   const swiperContainerRef = useRef(null);
   const swiperRef = useRef(null); // Dodajemy referencję do Swipera
@@ -89,7 +91,7 @@ const HeroSlider = () => {
           <div className="swiper-slide">
             <div
               className="slide-inner slide-bg-image"
-              data-background="https://images.unsplash.com/photo-1578934191836-ff5f608c2228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80"
+              style={{ backgroundImage: `url(${slideOne})` }}
             >
               <div className="container">
                 <div data-swiper-parallax="300" className="slide-title">
