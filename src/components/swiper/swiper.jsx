@@ -3,6 +3,7 @@ import Swiper from "swiper";
 import "swiper/css";
 
 import slideOne from '../../assets/slajd_1.jpeg';
+import slideTwo from '../../assets/slajd_2.jpeg';
 
 const HeroSlider = () => {
   const swiperContainerRef = useRef(null);
@@ -116,7 +117,7 @@ const HeroSlider = () => {
           <div className="swiper-slide">
             <div
               className="slide-inner slide-bg-image"
-              data-background="https://images.unsplash.com/photo-1579003087287-997fd4d18771?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+              style={{ backgroundImage: `url(${slideTwo})` }}
             >
               <div className="container">
                 <div data-swiper-parallax="300" className="slide-title">
