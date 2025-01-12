@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Swiper from "swiper";
 import "swiper/css";
 
@@ -7,12 +7,96 @@ import slideTwo from '../../assets/slajd_2.jpeg';
 
 const HeroSlider = () => {
   const swiperContainerRef = useRef(null);
-  const swiperRef = useRef(null); // Dodajemy referencję do Swipera
+  const swiperRef = useRef(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const resetSlideStyles = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slides.forEach(slide => {
+        slide.style.transition = "none";  // Resetujemy animacje przed przejściem
+        slide.style.transform = "";
+        const slideInner = slide.querySelector(".slide-inner");
+        if (slideInner) {
+          slideInner.style.transition = "none";  // Resetowanie animacji wewnętrznych
+          slideInner.style.transform = "";
+        }
+      });
+    }
+  };
+
+  const setSlideTransition = (speed) => {
+    if (swiperRef.current) {
+      swiperRef.current.slides.forEach(slide => {
+        slide.style.transition = `transform ${speed}ms ease`;
+        const slideInner = slide.querySelector(".slide-inner");
+        if (slideInner) {
+          slideInner.style.transition = `transform ${speed}ms ease`;
+        }
+      });
+    }
+  };
+
+  const nextSlide = () => {
+    if (swiperRef.current && !isAnimating) {
+      setIsAnimating(true);
+
+      const swiper = swiperRef.current;
+
+      // Resetowanie stylów przed animacją
+      resetSlideStyles();
+
+      // Ustawienie animacji
+      setSlideTransition(1000);  // Określamy stały czas przejścia
+
+      // Przejście do następnego slajdu
+      swiper.slideNext();
+
+      // Po zakończeniu animacji
+      const handleTransitionEnd = () => {
+        setIsAnimating(false);
+        swiper.slides.forEach(slide =>
+          slide.removeEventListener("transitionend", handleTransitionEnd)
+        );
+      };
+
+      swiper.slides.forEach(slide => {
+        slide.addEventListener("transitionend", handleTransitionEnd);
+      });
+    }
+  };
+
+  const prevSlide = () => {
+    if (swiperRef.current && !isAnimating) {
+      setIsAnimating(true);
+
+      const swiper = swiperRef.current;
+
+      // Resetowanie stylów przed animacją
+      resetSlideStyles();
+
+      // Ustawienie animacji
+      setSlideTransition(1000);  // Określamy stały czas przejścia
+
+      // Przejście do poprzedniego slajdu
+      swiper.slidePrev();
+
+      // Po zakończeniu animacji
+      const handleTransitionEnd = () => {
+        setIsAnimating(false);
+        swiper.slides.forEach(slide =>
+          slide.removeEventListener("transitionend", handleTransitionEnd)
+        );
+      };
+
+      swiper.slides.forEach(slide => {
+        slide.addEventListener("transitionend", handleTransitionEnd);
+      });
+    }
+  };
 
   useEffect(() => {
-    const interleaveOffset = 0.5;
+    const interleaveOffset = 0.9;
 
-    // Upewnijmy się, że Swiper jest inicjalizowany po załadowaniu komponentu
     const initializeSwiper = () => {
       if (swiperContainerRef.current && !swiperRef.current) {
         swiperRef.current = new Swiper(swiperContainerRef.current, {
@@ -33,9 +117,6 @@ const HeroSlider = () => {
             prevEl: ".swiper-button-prev",
           },
           on: {
-            init: function () {
-              console.log("Swiper has been initialized!");
-            },
             progress: function () {
               const swiper = this;
               for (let i = 0; i < swiper.slides.length; i++) {
@@ -48,24 +129,25 @@ const HeroSlider = () => {
             },
             touchStart: function () {
               const swiper = this;
-              for (let i = 0; i < swiper.slides.length; i++) {
-                swiper.slides[i].style.transition = "";
-              }
+              swiper.slides.forEach(slide => {
+                slide.style.transition = "none";  // Wyłączanie przejść przy dotknięciu
+              });
             },
             setTransition: function (speed) {
               const swiper = this;
-              for (let i = 0; i < swiper.slides.length; i++) {
-                swiper.slides[i].style.transition = `${speed}ms`;
-                swiper.slides[i].querySelector(".slide-inner").style.transition =
-                  `${speed}ms`;
-              }
+              swiper.slides.forEach(slide => {
+                slide.style.transition = `${speed}ms`;
+                const slideInner = slide.querySelector(".slide-inner");
+                if (slideInner) {
+                  slideInner.style.transition = `${speed}ms`;
+                }
+              });
             },
           },
         });
       }
     };
 
-    // Inicjalizuj Swipera po pełnym załadowaniu komponentu
     setTimeout(initializeSwiper, 100);
 
     return () => {
@@ -96,7 +178,7 @@ const HeroSlider = () => {
             >
               <div className="container">
                 <div data-swiper-parallax="300" className="slide-title">
-                  <h2>PRZYŁADOWY TYTUŁ 1</h2>
+                  <h2>PRZYKŁADOWY TYTUŁ 1</h2>
                 </div>
                 <div data-swiper-parallax="400" className="slide-text">
                   <p>Przykładowy sub tytuł 2</p>
@@ -141,8 +223,8 @@ const HeroSlider = () => {
         </div>
 
         <div className="swiper-pagination"></div>
-        <div className="swiper-button-next"></div>
-        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next" onClick={nextSlide}></div>
+        <div className="swiper-button-prev" onClick={prevSlide}></div>
       </div>
     </section>
   );
