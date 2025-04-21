@@ -90,7 +90,7 @@ const HeroSlider = () => {
           speed: ANIMATION_SPEED,
           parallax: true,
           autoplay: {
-            delay: 6500,
+            delay: 4500,
             disableOnInteraction: false,
           },
           watchSlidesProgress: true,
@@ -174,7 +174,7 @@ const HeroSlider = () => {
                     <h2>PRZYKŁADOWY TYTUŁ 1</h2>
                   </div>
                   <div data-swiper-parallax="400" className="slide-text">
-                    <p>Przykładowy sub tytuł 2</p>
+                    <p>Przykładowy sub tytuł 1</p>
                   </div>
                   <div className="clearfix"></div>
                   <div data-swiper-parallax="500" className="slide-btns">
@@ -182,7 +182,7 @@ const HeroSlider = () => {
                       Przycisk 1
                     </a>
                     <a href="#" className="theme-btn-s3">
-                      <i className="fas fa-chevron-circle-right"></i> Przycisk 2
+                      Przycisk 2
                     </a>
                   </div>
                 </div>
@@ -207,7 +207,7 @@ const HeroSlider = () => {
                       Przycisk 1
                     </a>
                     <a href="#" className="theme-btn-s3">
-                      <i className="fas fa-chevron-circle-right"></i> Przycisk 2
+                      Przycisk 2
                     </a>
                   </div>
                 </div>

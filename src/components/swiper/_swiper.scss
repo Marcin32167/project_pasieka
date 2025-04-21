@@ -91,13 +91,13 @@ h2 {
     transform: translateX(50px);
     cursor: pointer;
 
-    &::before {
-      font-family: "Font Awesome 5 Free";
-      content: "\f060";
-      font-size: 15px;
-      color: #d4d3d3;
-      font-weight: 900;
-    }
+    //&::before {
+    //  font-family: "Font Awesome 5 Free";
+    //  content: "\f060";
+    //  font-size: 15px;
+    //  color: #d4d3d3;
+    //  font-weight: 900;
+    //}
   }
 
   .swiper-button-next {
@@ -105,13 +105,13 @@ h2 {
     transform: translateX(-50px);
     cursor: pointer;
 
-    &::before {
-      font-family: "Font Awesome 5 Free";
-      content: "\f061";
-      font-size: 15px;
-      color: #d4d3d3;
-      font-weight: 900;
-    }
+    //&::before {
+    //  font-family: "Font Awesome 5 Free";
+    //  content: "\f061";
+    //  font-size: 15px;
+    //  color: #d4d3d3;
+    //  font-weight: 900;
+    //}
   }
 
   .swiper-pagination {
@@ -180,7 +180,7 @@ h2 {
 
   .slide-title h2 {
     font-size: 100px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1;
     color: #ffffff;
     margin: 0 0 40px;

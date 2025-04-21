@@ -1,45 +1,66 @@
 @import '../../scss/settings/fonts';
+@import '../../scss/settings/colors';
+
+// Zmienne kolorów
+$color-primary: $primary-color;
+$color-hover: #0056b3;
+$color-text: #000;
+$color-text-hover: #7a7b80;
+$breakpoint-mobile: 992px;
 
 @mixin btn__main {
-    display: inline-block;
+  display: inline-block;
+  padding: 0.9rem 1.6rem;
+  font-family: $font-btn;
+  text-decoration: none;
+  color: $white-color;
+  background-color: $color-primary;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background-color: $color-hover;
+    transform: translateY(-1px);
+  }
+
+  &:focus {
+    //outline: 2px solid $color-hover;
+    //outline-offset: 2px;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    display: none;
+  }
+}
+
+@mixin nav__link {
+  a {
     padding: 0.9rem 1.6rem;
-    font-family: $font-btn;
     text-decoration: none;
-    color: $white-color;
-    background-color: $primary-color;
-    border: none;
-    border-radius: 100vw;
-    cursor: pointer;
-    // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.15s all;
-  
-    &:hover {
-      background-color: #0056b3;
+    text-transform: uppercase;
+    color: $color-text;
+    font-weight: 600;
+    font-family: $font-nav;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: $color-text-hover;
     }
-  
+
     &:focus {
-      outline: none;
-    }
-    @media screen and (max-width: 992px) {
-      display: none;
-    }
-  } 
-
-  @mixin nav__link {
-    a {
-      padding: 0.9rem 1.6rem;
-      text-decoration: none;
-      text-transform: uppercase;
-      color: #000;
-      font-weight: bold;
-      font-family: $font-nav;
-
-      &:hover {
-        color: #7a7b80;
-      }
-
-      &.active {
-        color: #7a7b80;
-      }
+      //outline: 2px solid $color-text-hover;
+      //outline-offset: 2px;
     }
   }
+
+  transition: opacity 0.3s ease;
+
+  &.faded {
+    opacity: 0.3;
+  }
+}
